@@ -1,0 +1,7 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'logs.css' %}">
+{% block content %}
+{% csrf_token %}
+<p>Logged out!</p>
+<a href="{% url 'login' %}">Click here to login </a>
+{% endblock %}
