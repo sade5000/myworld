@@ -1,0 +1,56 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'signup.css' %}">
+<h1 class="headertitle">
+        Signup to Cherstraders.co.uk
+</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <table class="center">
+        <tr>
+            <th colspan="2">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                     when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                     It has survived not only five centuries, but also the leap into electronic typesetting,
+                      remaining essentially unchanged. It was popularised in the 1960s with the release of 
+                      Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+                      software like 
+                    Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </th>
+        </tr>
+        <tr>
+            <th>{{ form.email.label}}</th>
+        </tr>
+        <tr>
+            <th>{{ form.email}}</th><th> username  max 30 char!</th>
+        </tr>
+        
+        
+
+        <tr>
+            <th>{{ form.password1.label}}</th><th>{{ form.password2.label}}</th>
+        </tr>
+        <tr>
+            <th>{{ form.password1}}</th><th>{{ form.password2}}</th>
+        </tr>
+        <!-- SignUp with checkbox-->
+        <tr>
+            <th> <!-- Is activating is_costumer = True -->
+                <input type="checkbox" class="costumer_check"  name="is_costumer" value="True">
+                <label for="Costumer"> Terms & Conditions </label><br>
+               
+            </th>
+        </tr>
+
+        <tr>
+            <th><button type="submit">Signup</button></th><th><a class="signupLink" href="{% url 'login' %}">Already have account?</a></th>
+        </tr>
+        <tr>
+            
+        </tr>
+    </table>
+  
+    
+</form>

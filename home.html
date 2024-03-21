@@ -1,0 +1,130 @@
+{% extends "master.html" %}
+<html>
+    {% block title %} Home page {% endblock %}
+
+    <header>
+        {% block header%} 
+       <!--Scripts for buttons-->
+        <script>
+              /* script for droptdown btn 
+              function myfunction(){
+                    document.getElementById("myDropDown").classList.toggle("show");
+              }
+              window.onclick=function(event){
+                    if(!event.target.matches('.dropbtn')){
+                          var dropdwns = document.getElementsByClassName("drop-content");
+                          var i;
+                          for(i =0 ; i< dropdwns.length; i++){
+                                var OpenDropdown = dropdwns[i];
+                                if(OpenDropdown.classList.contains('show')){
+                                      OpenDropdown.classList.remove('show');
+                                }
+                          }
+                    }
+              }
+              */
+        </script>
+  
+  <!--Header table board-->
+  
+        {%load static %}<meta charset="utf-8">
+        {%load static %}<link rel="stylesheet" href="{% static 'home.css' %}">
+        <table>
+              <tr> 
+                    <!--About us dropdown-->
+                    <th class="imagepr">{%load static %} <img src="{% static 'company_logo.png' %}" alt="company_logo" width="350" height="100"></th>
+                    <th class="aboutus">
+                          <div class="dropdown">
+                                <button class="dropbtn">About Us</button>
+                                <div class="drop-content">
+                                      <a href="#about">About Us </a>
+                                      <a href="#ourteam">Our Team </a>
+                                      <a href="#equalityanddiversity">Equality and  Diversity</a>
+                                      <a href="#howarewedoing">How are we doing </a>
+                                      <a href="#ourpolicies">Our Policies </a>
+                                      <a href="#ourpublications">Our Publications </a>
+                                      <a href="#ourstrategy">Our Strategy </a>
+                                      <a href="#certifications">Our Certifications </a>                       
+                                </div>
+                          </div>
+                           
+                    |</th>
+                    <!--Investor Centre dropdown-->
+                    <th class="investor">
+                          <div class="dropdown">
+                                <button class="dropbtn">Investor Centre</button>
+                                <div class="drop-content">
+                                      <a href="#investorcentre">Investor Centre</a>
+                                      <a href="#whypartenerwithus">Why Partener with Us </a>
+                                      <a href="#ourrating">Our Rating</a>
+                                      <a href="#reportandpublications">Reports and Publications </a>
+                                      <a href="#debitinformations">Debit Informations </a>
+                                      <a href="#ourreportingcalendar">Our Reporting Calendar </a>
+                                      <a href="#investorenquiries">Investor Enquiries </a>
+                                      <a href="#publicdebitcapitalmarket">Public Debit Capital Market </a>                       
+                                </div>
+                          </div>
+                          
+                    | </th>
+                    <!--Join our team dropdown-->
+                    <th class="joinourteam">
+                          <div class="dropdown">
+                                <button class="dropbtn">Join Our Team</button>
+                                <div class="drop-content">
+                                      <a href="#joinourteam">Join Our Team</a>
+                                      <a href="#proudtobeplatform">Proud to be Platform </a>
+                                      <a href="#howtoapply">How to Apply</a>
+                                      <a href="#currentvacancies">Current Vacancies </a>
+                                      <a href="#apprenticeship">Apprenticeship</a>                     
+                                </div>
+                          </div>
+                    | </th>
+                    <!--Need to link news and select language-->
+                    <th class="news"><a href="#news">News</a> |</th>
+                    {% if user.is_authenticated%}
+                    <th class="login"><a href="abusers/logout">Log Out</a></th>
+                    {% else %}
+                    <th class="login"><a href=" abusers/login">Log In</a></th>
+                    {% endif %}
+  
+  
+  
+                    <th class="separator"> | </th>
+  
+                    {% if user.is_authenticated%}
+                    <th class="selectlanguage"><a href="userpanel/"> User Panel</a></th>
+                    {% else %}
+                    <th class="selectlanguage" hidden><a href="userpanel/"> User Panel</a></th>
+                    {% endif %}
+                    
+              </tr>
+        </table>
+        {% endblock %}
+  
+  </header>
+       
+  <body>
+        {% block content %}
+              <div class="headerA">
+                    <table>
+                          <tr>
+                                <th> {%load static %}<img src="{% static 'office.jpg' %}" width="100%" height="600"></th>
+                          </tr>
+  
+                    </table>
+                   
+                   
+                    
+              </div>
+              
+        {% endblock %}
+  
+     <h1>Home page is working !</h1>
+  </body>
+  </html>
+
+
+
+
+
+</html>

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html>
+  
+
+{% load static %} 
+<link rel="stylesheet" href="{% static 'userpanel.css' %}"> <!--Activate static CSS-->
+<script src="{% static 'userpanel.js' %}"></script><!--Activate static JS-->
+
+
+<!--h3 will be used just for header 
+    body will skip h3 -->
+
+{% if user.is_authenticated %}
+  {% load static %}<h3><a class="topHead" href="{% url 'logout' %}?next={{request.path}}"> logout:</a><a class="topHead">{{user.email}}</a></h3>
+
+{% else %}
+  <h3><a class="topHead" href="{% url 'login' %}?next={{request.path}}">Please login</a> or <a href="{% url 'signup'%}?next={{request.path}}">Sign UP</a></h3>
+{% endif %}
+
+
+  <body>
+<div class="SideBarCostumer"><div class="ProfileShow">  </div> <div class="buttonAction">   </div>
+  <div class="SideBarName">Control Panel</div>
+    <div class="JustaBand">cherstraders.co.uk</div>
+      <div class="SideBarUserImg"><img  src="{{ user.profile.profile_img.url }}" class="ProfImg"></div>
+        <div class="JustaBand">main menu</div>
+          
+          <div class="BtnVisual"> <button type="button" class="btnVisualAct"><a href="{% url 'home' %}" class="homeLink"> Home </a> </div>
+          
+            <div class="BtnVisual"> <button type="button" class="btnVisualAct"> Profile </div>
+              <div class="BtnVisual"> <button type="button" class="btnVisualAct"> Views </div>
+                <div class="BtnVisual"> <button type="button" class="btnVisualAct"> List </div>
+                  <div class="BtnVisual"> <button type="button" class="btnVisualAct"> Cart </div>
+                    <div class="BtnVisual"> <button type="button" class="btnVisualAct"> Messages </div>
+
+</div>
+<!--
+<div class="windowScreen">
+  <div clas="userPic"> <img  src="{{ user.profile.profile_img.url }}" class="ProfImgEdit"> <div class="browseBtn">  Browse: </div>  </div>
+</div>
+-->
+<div class="farTable">
+  <table>
+    <tr>
+      <th><h2> User: {{user.email}} </h2></th>
+    </tr>
+    <tr>
+      <th> <h2>Name: {{user.firstname}}  {{user.lastname}}</h2> </th>
+    </tr>
+    <tr>
+      <th><h2> DOB: {{user.profile.dob}}</h2></th>
+    </tr>
+    <tr>
+      <th><h2> Address: {{user.profile.first_line_address}} </h2></th>
+    </tr>
+    <tr>
+      <th><h2> Second Line: {{user.profile.second_line_address}} </h2></th>
+    </tr>
+    <tr>
+      <th><h2> Postcode: {{user.profile.postcode}} </h2></th>
+    </tr>
+  </table>
+</div>
+
+
+<!--
+
+
+<div class="sideNav">
+  <div>
+    <button class="sideNavBtn" type="button"> Home </button>
+  </div>
+  <div>
+    <button class="sideNavBtn" type="button"> Profile </button>
+  </div>
+  <div>
+    <button class="sideNavBtn" type="button"> My Bank details </button>
+  </div>
+  <div>
+    <button class="sideNavBtn" type="button"> Shoping List </button>
+  </div> 
+</div>
+
+
+-->
+
+
+<!--
+
+  <div class="main">
+    <div class="imgAndTable">
+      <table class="profileTable">
+        <tr class="headerProfileTable" >
+          <th colspan="2"><img  src="{{ user.profile.profile_img.url }}" class="ProfImg"> </th> 
+        </tr>
+        <tr colspan="2">
+          <td class="nameProfileTable"><h3 object-position="left"> <img src="{% static 'Facebook_logo.png' %}" class="logoProfileLogo"> Facebook </h3>
+            <h3 text-align="left"> <img object-position="left" src="{% static 'Instagram_logo.png' %}" class="logoProfileLogo"> Instagram </h3>
+          </td> 
+         
+        </tr>
+
+      </table>
+      
+
+    </div>
+  </div>
+
+
+
+-->
+
+
+
+
+<!--
+
+   <div class="usertable">
+    <table >
+      <tr clas="topUserPanelTable">
+          <th class="tabelTitle">***User Control Bar*** </th> 
+      </tr>
+          <td><a class="tabRef" href="{% url 'home' %}">Back Home</a></td> 
+      <tr>
+        {% if user.is_authenticated %}
+          <td><a class="tabRef" href="/members/templates/details/{{user.email}} ">My Profile</a></td> <td> {% if user.is_costumer ==  True%} <h2 class="costumerMsg"> This user is a costumer </h2> {% endif %} </td>
+        {% else %}
+          <td><a class="tabRef" href="{% url 'home' %}">Home</a></td>
+        {% endif %}
+      </tr>
+      <tr>
+          <td><a class="tabRef" href="{% url 'userpanel' %}">User Form</a></td> <td> 
+            {% if request.user.firstname != null %}
+              <h2 class="costumerMsg">  {{user.firstname}} {{user.lastname}} </h2> <h2> {{user.profile.dob}}</h2><h2> {{user.profile.first_line_address}} {{user.profile.second_line_address}}</h2> <h2>{{user.profile.postcode}}</h2>
+            {% else %} 
+              <h2> Click <a href="#something">here </a>to add your credentials</h2> 
+            
+            {%endif%}   
+          </td>
+      </tr>
+      <tr>
+          <td><a class="tabRef" href="#MyShop">My Shop</a></td>
+      </tr>
+      <tr>
+          <td><a class="tabRef" href="#MySales">My Sales</a></td>
+      </tr>
+
+    </table>
+  </div>
+
+
+
+
+
+<p id="changeParagraph"> My brilliant paragraph </p>
+<button type="button" onclick="ParagraphChange()"> clickIt </button>
+
+
+
+ 
+-->
+
+  </body>
+ 
+  </html>
+  
+ 
+
